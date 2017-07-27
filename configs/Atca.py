@@ -26,6 +26,51 @@ EXIT_STATE_DEPEND = {
 	}
 }
 
+FRU_INSTANCES = {
+	'<inventory_root>/system' : { 'fru_type' : 'SYSTEM','is_fru' : True, },
+	'<inventory_root>/system/chassis' : { 'fru_type' : 'SYSTEM','is_fru' : True, },
+	'<inventory_root>/system/chassis/motherboard' : { 'fru_type' : 'MAIN_PLANAR','is_fru' : True, },
+
+	'<inventory_root>/system/chassis/fan0' : { 'fru_type' : 'FAN','is_fru' : True, },
+	'<inventory_root>/system/chassis/fan1' : { 'fru_type' : 'FAN','is_fru' : True, },
+	'<inventory_root>/system/chassis/fan2' : { 'fru_type' : 'FAN','is_fru' : True, },
+	'<inventory_root>/system/chassis/fan3' : { 'fru_type' : 'FAN','is_fru' : True, },
+	'<inventory_root>/system/chassis/fan4' : { 'fru_type' : 'FAN','is_fru' : True, },
+
+	'<inventory_root>/system/chassis/motherboard/bmc' : { 'fru_type' : 'BMC','is_fru' : False, 
+			'manufacturer' : 'ASPEED' },
+	'<inventory_root>/system/chassis/motherboard/cpu0' : { 'fru_type' : 'CPU', 'is_fru' : True, },
+	'<inventory_root>/system/chassis/motherboard/cpu0/core0' : { 'fru_type' : 'CORE', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/cpu0/core1' : { 'fru_type' : 'CORE', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/cpu0/core2' : { 'fru_type' : 'CORE', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/cpu0/core3' : { 'fru_type' : 'CORE', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/cpu0/core4' : { 'fru_type' : 'CORE', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/cpu0/core5' : { 'fru_type' : 'CORE', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/cpu0/core6' : { 'fru_type' : 'CORE', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/cpu0/core7' : { 'fru_type' : 'CORE', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/cpu0/core8' : { 'fru_type' : 'CORE', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/cpu0/core9' : { 'fru_type' : 'CORE', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/cpu0/core10' : { 'fru_type' : 'CORE', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/cpu0/core11' : { 'fru_type' : 'CORE', 'is_fru' : False, },
+
+	
+	'<inventory_root>/system/chassis/motherboard/membuf0' : { 'fru_type' : 'MEMORY_BUFFER', 'is_fru' : False, },
+
+	'<inventory_root>/system/chassis/motherboard/dimm0' : { 'fru_type' : 'DIMM', 'is_fru' : True,},
+	'<inventory_root>/system/chassis/motherboard/dimm1' : { 'fru_type' : 'DIMM', 'is_fru' : True,},
+	'<inventory_root>/system/chassis/motherboard/dimm2' : { 'fru_type' : 'DIMM', 'is_fru' : True,},
+	'<inventory_root>/system/chassis/motherboard/dimm3' : { 'fru_type' : 'DIMM', 'is_fru' : True,},
+
+	'<inventory_root>/system/chassis/io_board/pcie_slot0' : { 'fru_type' : 'PCIE_CARD', 'is_fru' : True,},
+	'<inventory_root>/system/chassis/io_board/pcie_slot1' : { 'fru_type' : 'PCIE_CARD', 'is_fru' : True,},
+
+	'<inventory_root>/system/systemevent'                  : { 'fru_type' : 'SYSTEM_EVENT', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/refclock' : { 'fru_type' : 'MAIN_PLANAR', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/pcieclock': { 'fru_type' : 'MAIN_PLANAR', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/todclock' : { 'fru_type' : 'MAIN_PLANAR', 'is_fru' : False, },
+	'<inventory_root>/system/chassis/motherboard/apss'     : { 'fru_type' : 'MAIN_PLANAR', 'is_fru' : False, },
+}
+
 ID_LOOKUP = {
 	'FRU' : {
 		0x0d : '<inventory_root>/system/chassis',
@@ -87,13 +132,13 @@ GPIO_CONFIG = {}
 GPIO_CONFIG['FSI_CLK']    =   { 'gpio_pin': 'A4', 'direction': 'out' }
 GPIO_CONFIG['FSI_DATA']   =   { 'gpio_pin': 'A5', 'direction': 'out' }
 GPIO_CONFIG['FSI_ENABLE'] =   { 'gpio_pin': 'D0', 'direction': 'out' }
-GPIO_CONFIG['POWER_PIN']  =   { 'gpio_pin': 'F3', 'direction': 'out'  }
+GPIO_CONFIG['POWER_PIN']  =   { 'gpio_pin': 'F3', 'direction': 'out'  } # change from E1
 GPIO_CONFIG['CRONUS_SEL'] =   { 'gpio_pin': 'A6', 'direction': 'out'  }
-GPIO_CONFIG['PGOOD']      =   { 'gpio_pin': 'J0', 'direction': 'in'  }
+GPIO_CONFIG['PGOOD']      =   { 'gpio_pin': 'J0', 'direction': 'in'  } # change from C7
 GPIO_CONFIG['BMC_THROTTLE'] = { 'gpio_pin': 'J3', 'direction': 'out' }
-GPIO_CONFIG['IDBTN']       = { 'gpio_pin': 'Q7', 'direction': 'out' }
-GPIO_CONFIG['POWER_BUTTON'] = { 'gpio_pin': 'E0', 'direction': 'both' }
-GPIO_CONFIG['PCIE_RESET']   = { 'gpio_pin': 'B5', 'direction': 'out' }
+# GPIO_CONFIG['IDBTN']       = { 'gpio_pin': 'Q7', 'direction': 'out' } # delete
+GPIO_CONFIG['POWER_BUTTON'] = { 'gpio_pin': 'R6', 'direction': 'both' } # change from E0, R6 is void
+# GPIO_CONFIG['PCIE_RESET']   = { 'gpio_pin': 'B5', 'direction': 'out' } # function done in cpld
 GPIO_CONFIG['USB_RESET']    = { 'gpio_pin': 'B6', 'direction': 'out' }
 GPIO_CONFIG['SLOT0_RISER_PRESENT'] =   { 'gpio_pin': 'N0', 'direction': 'in' }
 GPIO_CONFIG['SLOT1_RISER_PRESENT'] =   { 'gpio_pin': 'N1', 'direction': 'in' }
@@ -103,7 +148,7 @@ GPIO_CONFIG['SLOT1_PRESENT'] =         { 'gpio_pin': 'N4', 'direction': 'in' }
 GPIO_CONFIG['SLOT2_PRESENT'] =         { 'gpio_pin': 'N5', 'direction': 'in' }
 GPIO_CONFIG['MEZZ0_PRESENT'] =         { 'gpio_pin': 'O0', 'direction': 'in' }
 GPIO_CONFIG['MEZZ1_PRESENT'] =         { 'gpio_pin': 'O1', 'direction': 'in' }
-GPIO_CONFIG['CHECKSTOP']      =   { 'gpio_pin': 'P5', 'direction': 'falling' }
+GPIO_CONFIG['CHECKSTOP']      =   { 'gpio_pin': 'H0', 'direction': 'falling' } # change from P5
 
 GPIO_CONFIGS = {
     'power_config' : {
@@ -116,7 +161,7 @@ GPIO_CONFIGS = {
         ],
         'pci_reset_outs': [
             # net name, polarity, reset hold
-            ('PCIE_RESET', False, False),
+#            ('PCIE_RESET', False, False),
         ],
     },
     'hostctl_config' : {
@@ -126,7 +171,7 @@ GPIO_CONFIGS = {
         'cronus_sel' : 'CRONUS_SEL',
         'optionals' : [
             ('BMC_THROTTLE', True),
-            ('IDBTN', False),
+#            ('IDBTN', False),
         ],
     },
 }
