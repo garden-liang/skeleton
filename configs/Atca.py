@@ -139,7 +139,8 @@ GPIO_CONFIG['BMC_THROTTLE'] = { 'gpio_pin': 'J3', 'direction': 'out' }
 # GPIO_CONFIG['IDBTN']       = { 'gpio_pin': 'Q7', 'direction': 'out' } # delete
 GPIO_CONFIG['POWER_BUTTON'] = { 'gpio_pin': 'R6', 'direction': 'both' } # change from E0, R6 is void
 # GPIO_CONFIG['PCIE_RESET']   = { 'gpio_pin': 'B5', 'direction': 'out' } # function done in cpld
-GPIO_CONFIG['USB_RESET']    = { 'gpio_pin': 'B6', 'direction': 'out' }
+GPIO_CONFIG['PCIE_RESET']   = { 'gpio_pin': 'B6', 'direction': 'out' } # function done in cpld
+# GPIO_CONFIG['USB_RESET']    = { 'gpio_pin': 'B6', 'direction': 'out' }
 GPIO_CONFIG['SLOT0_RISER_PRESENT'] =   { 'gpio_pin': 'N0', 'direction': 'in' }
 GPIO_CONFIG['SLOT1_RISER_PRESENT'] =   { 'gpio_pin': 'N1', 'direction': 'in' }
 GPIO_CONFIG['SLOT2_RISER_PRESENT'] =   { 'gpio_pin': 'N2', 'direction': 'in' }
@@ -161,7 +162,7 @@ GPIO_CONFIGS = {
         ],
         'pci_reset_outs': [
             # net name, polarity, reset hold
-#            ('PCIE_RESET', False, False),
+            ('PCIE_RESET', False, True),
         ],
     },
     'hostctl_config' : {
