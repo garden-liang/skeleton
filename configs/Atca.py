@@ -158,7 +158,7 @@ GPIO_CONFIGS = {
             ('POWER_PIN', False),
         ],
         'reset_outs' : [
-            ('USB_RESET', False),
+#            ('USB_RESET', False),
         ],
         'pci_reset_outs': [
             # net name, polarity, reset hold
